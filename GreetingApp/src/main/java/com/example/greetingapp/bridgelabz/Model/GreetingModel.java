@@ -5,18 +5,16 @@ import javax.persistence.Id;
 
 public class GreetingModel {
     @Id
+
     @Column(name="id", nullable=false)
     private long id;
     @Column(name="message", nullable=false)
     private String message;
 
-    public GreetingModel(){}
-
     public GreetingModel(long id, String message) {
         this.id = id;
         this.message = message;
     }
-
 
     public long getId() {
         return id;

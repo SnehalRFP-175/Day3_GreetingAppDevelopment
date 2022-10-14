@@ -9,11 +9,14 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class GreetingController
 {
+    /*
+    * UC1-Create Spring App
+    */
     @Autowired
     private static final String template = "Hello, %s!";
     private final AtomicLong counter= new AtomicLong();
 
-    @GetMapping("/Greetings")
+    @GetMapping("/greetings")
     public GreetingModel greeting(@RequestParam(value="name", defaultValue = "World") String name){
         return new GreetingModel(counter.incrementAndGet(),String.format(template,name));
     }

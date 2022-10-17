@@ -18,11 +18,19 @@ public class GreetingController {
     private IGreetingService greetingService;
 
     @GetMapping("/greeting")
-    public String greeting(@RequestParam String firstName, @RequestParam String lastName) {
+    public String greeting(@RequestParam String firstName, @RequestParam String lastName){
         User user = new User();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         return greetingService.getGreetingMessage(user);
-
     }
+
+    @PostMapping("/greeting")
+    public Greeting addGreeting(@RequestParam String firstName, @RequestParam String lastName){
+        User user = new User();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        return greetingService.addGreetingMessage(user);
+    }
+
 }
